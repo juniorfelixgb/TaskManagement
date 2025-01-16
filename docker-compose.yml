@@ -1,0 +1,28 @@
+services:
+  taskmanagement.client:
+    image: ${DOCKER_REGISTRY-}taskmanagementclient
+    build:
+      context: .
+      dockerfile: src/TaskManagement/TaskManagement/Dockerfile
+  taskmanagement.reverseproxy:
+    image: ${DOCKER_REGISTRY-}taskmanagementreverseproxy
+    build:
+      context: .
+      dockerfile: src/TaskManagement.ReverseProxy/Dockerfile
+  usermanagement.api:
+    image: ${DOCKER_REGISTRY-}usermanagementapi
+    build:
+      context: .
+      dockerfile: src/UserManagement.Api/Dockerfile
+
+  taskmanagement.api:
+    image: ${DOCKER_REGISTRY-}taskmanagementapi
+    build:
+      context: .
+      dockerfile: src/TaskManagement.Api/Dockerfile
+
+  projectmanagement.api:
+    image: ${DOCKER_REGISTRY-}projectmanagementapi
+    build:
+      context: .
+      dockerfile: src/ProjectManagement.Api/Dockerfile
